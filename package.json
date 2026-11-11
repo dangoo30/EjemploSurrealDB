@@ -1,0 +1,25 @@
+{
+  "name": "surreal-music-graph",
+  "version": "1.0.0",
+  "description": "API REST de ejemplo con SurrealDB: usuarios, canciones, likes y recomendaciones con relaciones de grafo",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:setup": "node src/scripts/setupDatabase.js",
+    "db:seed": "node src/scripts/seedDatabase.js",
+    "watch:likes": "node src/scripts/watchLikes.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": ["surrealdb", "multimodel", "graph", "express"],
+  "author": "Juan Esteban",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "surrealdb": "^2.2.0"
+  }
+}

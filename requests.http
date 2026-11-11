@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:3000/api
+
+### Listar usuarios
+GET {{baseUrl}}/users
+
+### Perfil de un usuario
+GET {{baseUrl}}/users/ana
+
+### Recomendaciones para ana
+GET {{baseUrl}}/users/ana/recommendations
+
+### Crear usuario
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "juan_e",
+  "email": "juan@correo.com",
+  "favoriteGenres": ["rock", "indie"]
+}
+
+### Seguir a luis
+POST {{baseUrl}}/users/juan_e/following
+Content-Type: application/json
+
+{ "userId": "luis" }
+
+### Dar like a una cancion
+POST {{baseUrl}}/users/juan_e/likes
+Content-Type: application/json
+
+{ "songId": "reptilia" }
+
+### Canciones de rock ordenadas por likes
+GET {{baseUrl}}/songs?genre=rock
+
+### Crear cancion con metadata libre
+POST {{baseUrl}}/songs
+Content-Type: application/json
+
+{
+  "title": "Fix You",
+  "artist": "Coldplay",
+  "genre": "rock",
+  "duration": "4m55s",
+  "metadata": { "album": "X&Y", "year": 2005 }
+}
+
+### Quitar like
+DELETE {{baseUrl}}/users/juan_e/likes/reptilia
